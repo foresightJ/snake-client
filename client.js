@@ -2,6 +2,9 @@
 "use strict"
 
 const net = require("net");
+const stdin = process.stdin;
+
+stdin.setEncoding = ('uft8');
 
 // establishes a connection with the game server
 const connect = function () {
@@ -17,9 +20,13 @@ const connect = function () {
     console.log(`stretchActivity`);
     // code that does something when the connection is first established
   });
-
+  
   conn.on('data', (data) => {
     console.log(data);
+  });
+
+  conn.on('connect',() => {
+    conn.write('Name: FST')
   })
 
   return conn;
