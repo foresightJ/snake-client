@@ -2,9 +2,9 @@
 "use strict"
 
 const net = require("net");
-const stdin = process.stdin;
+// const stdin = process.stdin;
 
-stdin.setEncoding = ('uft8');
+// stdin.setEncoding = ('uft8');
 
 // establishes a connection with the game server
 const connect = function () {
