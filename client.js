@@ -18,7 +18,6 @@ const connect = function () {
 
   conn.on("connect", () => {
     console.log(`stretchActivity`);
-    // code that does something when the connection is first established
   });
   
   conn.on('data', (data) => {
@@ -26,10 +25,13 @@ const connect = function () {
   });
 
   conn.on('connect',() => {
-    conn.write('Name: FST')
-  })
 
+    conn.write('Name: FST');
+    // setInterval(() => {
+    //   conn.write();
+    // }, 50);
+  });
   return conn;
 };
-
+    
 module.exports = {connect};
