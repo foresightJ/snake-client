@@ -1,12 +1,8 @@
 
-"use strict"
+// "use strict"
 
 const net = require("net");
-// const stdin = process.stdin;
 
-// stdin.setEncoding = ('uft8');
-
-// establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
     host: '165.227.47.243', // IP address here,
@@ -31,6 +27,7 @@ const connect = function () {
     //   conn.write();
     // }, 50);
   });
+  // console.log(conn.connect());
   return conn;
 };
     

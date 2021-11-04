@@ -1,22 +1,39 @@
 
-"use strict"
+let connection;
 
-const handleUserInput = function (key) {
-  // your code here
-  if (key === '\u0003') {
-    process.exit();
-  }
-};
-
-
-const setupInput = function () {
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
+  // console.log(conn);
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
   stdin.on("data", handleUserInput);
   return stdin;
+  
+  
+  
 };
 
+const handleUserInput = function (key) {
+  // your code here
+  if (key === 'w') {
+    connection.write(`Move: up`);
+    console.log('w');
+  } else if (key === 'd') {
+    connection.write(`Move: right`);
+  } else if (key === 's') {
+    connection.write(`Move: down`);
+  } else if (key === 'a') {
+    connection.write(`Move: left`);
+  }
+  if (key === '\u0003') {
+    process.exit();
+  } 
+}
 
-module.exports = {setupInput};
+// };
+  
+
+
+module.exports = {setupInput}
