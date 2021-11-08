@@ -1,15 +1,16 @@
-
 // "use strict"
 
 // const net = require("net");
-const setupInput = require("./input");
-const connect = require('./client')
+
+const { connect } = require("./client");
+const { setupInput } = require("./input");
 
 // establishes a connection with the game server
 
-
 console.log("Connecting ...");
-connect.connect();
+connect();
+// connect.connect();
 
-setupInput.setupInput(connect.connect());
+// console.log("play:", connect.connect());
 
+setupInput(connect());

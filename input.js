@@ -1,7 +1,6 @@
-
 let connection;
-
 const setupInput = function (conn) {
+  // console.log(connect);
   connection = conn;
   const stdin = process.stdin;
   // console.log(conn);
@@ -10,30 +9,31 @@ const setupInput = function (conn) {
   stdin.resume();
   stdin.on("data", handleUserInput);
   return stdin;
-  
-  
-  
 };
 
 const handleUserInput = function (key) {
   // your code here
-  if (key === 'w') {
+  if (key === "w") {
     connection.write(`Move: up`);
-    console.log('w');
-  } else if (key === 'd') {
-    connection.write(`Move: right`);
-  } else if (key === 's') {
-    connection.write(`Move: down`);
-  } else if (key === 'a') {
-    connection.write(`Move: left`);
+    console.log("w");
   }
-  if (key === '\u0003') {
+  if (key === "a") {
+    connection.write(`Move: left`);
+    console.log("a");
+  }
+  if (key === "s") {
+    connection.write(`Move: down`);
+    console.log("s");
+  }
+  if (key === "d") {
+    connection.write(`Move: right`);
+    console.log("d");
+  }
+  if (key === "\u0003") {
     process.exit();
-  } 
-}
+  }
+};
 
 // };
-  
 
-
-module.exports = {setupInput}
+module.exports = { setupInput };
